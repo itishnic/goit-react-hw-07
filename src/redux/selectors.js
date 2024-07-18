@@ -3,3 +3,15 @@ export const getFilters = (state) => state.filters.value;
 export const selectIsLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
 
+import { createSelector } from "@reduxjs/toolkit";
+
+
+export const selectFilteredContacts = createSelector(
+  [getContacts, getFilters],
+  (contacts, filter) => {
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  }
+);

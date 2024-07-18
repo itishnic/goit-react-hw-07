@@ -13,7 +13,7 @@ const ContactList = () => {
   const filters = useSelector(getFilters) || "";
 const isLoading = useSelector(selectIsLoading);
 const error = useSelector(selectError);
-
+const visibleContacts = useSelector(selectFilteredContacts);
 
 
 
